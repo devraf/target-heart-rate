@@ -1,0 +1,15 @@
+h1 {
+  font-size: 1.45rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.percent {
+  text-align: center;
+}
+
+.percentScale {
+  background: linear-gradient(to right, #00FF00, #7FFF00, #FFFF00, #FFFF00, #FF0000);
+}
