@@ -5,19 +5,27 @@ var app = new Vue({
     age: '',
     restingHeartRate: '',
     heartRateScale: [],
-    percentScale:['50%', '60%', '70%', '80%', '85%', 'Max'],
+    percentScale: ['50%', '60%', '70%', '80%', '85%', 'Max'],
     maximumHeartRate: '',
-    heartRateReserve: ''
+    heartRateReserve: '',
+    status: false
   },
   computed: {
-    updatedMaxHeartRate: function() {
+    checkStatus: function () {
+      if (this.age && this.restingHeartRate) {
+        this.status = true
+        return this.status
+      } else this.status = false
+      return this.status
+    },
+    updatedMaxHeartRate: function () {
       //sets a age range restriction to be less than 220
       if (this.age != '' && this.restingHeartRate != '' && this.age <= 115) {
         this.maximumHeartRate = 220 - this.age;
       } else this.maximumHeartRate = '';
       return this.maximumHeartRate
     },
-    updatedHeartRateScale: function() {
+    updatedHeartRateScale: function () {
       //Set new heart rate reserve
       this.heartRateReserve = this.maximumHeartRate - this.restingHeartRate;
       //Empty the array
